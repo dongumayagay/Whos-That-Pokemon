@@ -1,6 +1,12 @@
 {
 	"name": "wtp-sveltekit",
 	"version": "0.0.1",
+	"author": {
+		"name": "Don Gumayagay",
+		"email": "dngumayagay@gmail.com",
+		"url": "https://github.com/dongumayagay"
+	},
+	"license": "MIT",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",

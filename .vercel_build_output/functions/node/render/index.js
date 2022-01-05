@@ -5554,9 +5554,9 @@ var entry, js, css2;
 var init__ = __esm({
   ".svelte-kit/output/server/nodes/0.js"() {
     init_layout_svelte();
-    entry = "pages/__layout.svelte-3a1f6fa3.js";
-    js = ["pages/__layout.svelte-3a1f6fa3.js", "chunks/vendor-623f7f2a.js"];
-    css2 = ["assets/pages/__layout.svelte-37d36d83.css"];
+    entry = "pages/__layout.svelte-b2335568.js";
+    js = ["pages/__layout.svelte-b2335568.js", "chunks/vendor-97916add.js"];
+    css2 = ["assets/pages/__layout.svelte-594e25fe.css"];
   }
 });
 
@@ -5604,8 +5604,8 @@ var entry2, js2, css3;
 var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     init_error_svelte();
-    entry2 = "error.svelte-3f020757.js";
-    js2 = ["error.svelte-3f020757.js", "chunks/vendor-623f7f2a.js"];
+    entry2 = "error.svelte-f2f34fb9.js";
+    js2 = ["error.svelte-f2f34fb9.js", "chunks/vendor-97916add.js"];
     css3 = [];
   }
 });
@@ -5710,6 +5710,8 @@ var init_index_svelte = __esm({
       $$unsubscribe_hidePokemon = subscribe(hidePokemon, (value) => $hidePokemon = value);
       $$unsubscribe_showSelectGenerations = subscribe(showSelectGenerations, (value) => value);
       $$unsubscribe_choices = subscribe(choices, (value) => $choices = value);
+      let right_answer = null;
+      let wrong_answer = null;
       $$unsubscribe_pokemon();
       $$unsubscribe_hidePokemon();
       $$unsubscribe_showSelectGenerations();
@@ -5717,7 +5719,10 @@ var init_index_svelte = __esm({
       return `
 
 <section class="${"container grid sm:grid-cols-2 gap-4 px-4"}">${!$pokemon ? `<button class="${"btn bg-emerald-500 border-b-emerald-700 text-white"}">Play</button>
-		<button class="${"btn bg-pink-500 border-b-pink-700 text-white"}">Select Gen</button>` : `${each($choices, (choice) => `<button class="${"bg-white text-black border-neutral-400 btn"}">${escape(choice)}
+		<button class="${"btn bg-pink-500 border-b-pink-700 text-white"}">Select Gen</button>` : `${each($choices, (choice) => `<button class="${[
+        "btn " + escape(choice === right_answer ? "btn-correct" : "") + " " + escape(choice === wrong_answer ? "btn-wrong" : ""),
+        !$hidePokemon ? "btn-disable" : ""
+      ].join(" ").trim()}" ${!$hidePokemon ? "disabled" : ""}>${escape(choice)}
 			</button>`)}
 		${$hidePokemon ? `<button class="${"bg-sky-500 border-sky-700 text-white btn "}">Quit</button>` : `<button class="${"bg-sky-500 border-sky-700 text-white btn "}">${escape("Next")}</button>`}`}
 	</section>`;
@@ -5789,8 +5794,8 @@ var entry3, js3, css4;
 var init__3 = __esm({
   ".svelte-kit/output/server/nodes/2.js"() {
     init_index_svelte();
-    entry3 = "pages/index.svelte-70890fe4.js";
-    js3 = ["pages/index.svelte-70890fe4.js", "chunks/vendor-623f7f2a.js"];
+    entry3 = "pages/index.svelte-a9258811.js";
+    js3 = ["pages/index.svelte-a9258811.js", "chunks/vendor-97916add.js"];
     css4 = [];
   }
 });
@@ -7286,7 +7291,7 @@ var manifest = {
   assets: new Set(["favicon.ico", "favicon.png", "Ketchum-WeeV.woff2", "Pokemon GB.woff2"]),
   _: {
     mime: { ".ico": "image/vnd.microsoft.icon", ".png": "image/png", ".woff2": "font/woff2" },
-    entry: { "file": "start-e149bf69.js", "js": ["start-e149bf69.js", "chunks/vendor-623f7f2a.js"], "css": ["assets/start-d5b4de3e.css"] },
+    entry: { "file": "start-877ed2c4.js", "js": ["start-877ed2c4.js", "chunks/vendor-97916add.js"], "css": ["assets/start-d5b4de3e.css"] },
     nodes: [
       () => Promise.resolve().then(() => (init__(), __exports)),
       () => Promise.resolve().then(() => (init__2(), __exports2)),
