@@ -1,105 +1,89 @@
 <script>
-  import { scale } from "svelte/transition";
-  import { hidePokemon, pokemon, pokemon_id } from "../store";
+	import { scale } from 'svelte/transition';
+	import { hidePokemon, pokemon, pokemon_id } from '../store';
 
-  function drawSpiky(ctx) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#0284c7";
-    ctx.beginPath();
-    for (theta = _i = 0, _ref = Math.PI * 2; _i <= _ref; theta = _i += 0.05) {
-      radius = Math.random() * canvas.width * 0.3 + canvas.width * 0.25;
-      ctx.lineTo(
-        halfWidth + radius * Math.cos(theta),
-        halfHeight + radius * Math.sin(theta)
-      );
-    }
-    ctx.fill();
-    ctx.fillStyle = "#e5e5e5";
-    ctx.beginPath();
-    for (theta = _i = 0, _ref = Math.PI * 2; _i <= _ref; theta = _i += 0.05) {
-      radius = Math.random() * canvas.width * 0.2 + canvas.width * 0.25;
-      ctx.lineTo(
-        halfWidth + radius * Math.cos(theta),
-        halfHeight + radius * Math.sin(theta)
-      );
-    }
-    ctx.fill();
-  }
-  let width, height;
-  let canvas, ctx, halfWidth, halfHeight, radius, theta, _i, _ref;
+	function drawSpiky(ctx) {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle = '#0284c7';
+		ctx.beginPath();
+		for (theta = _i = 0, _ref = Math.PI * 2; _i <= _ref; theta = _i += 0.05) {
+			radius = Math.random() * canvas.width * 0.3 + canvas.width * 0.25;
+			ctx.lineTo(halfWidth + radius * Math.cos(theta), halfHeight + radius * Math.sin(theta));
+		}
+		ctx.fill();
+		ctx.fillStyle = '#e5e5e5';
+		ctx.beginPath();
+		for (theta = _i = 0, _ref = Math.PI * 2; _i <= _ref; theta = _i += 0.05) {
+			radius = Math.random() * canvas.width * 0.2 + canvas.width * 0.25;
+			ctx.lineTo(halfWidth + radius * Math.cos(theta), halfHeight + radius * Math.sin(theta));
+		}
+		ctx.fill();
+	}
+	let width, height;
+	let canvas, ctx, halfWidth, halfHeight, radius, theta, _i, _ref;
 
-  function setupCanvas() {
-    canvas.width = width;
-    canvas.height = height;
-    ctx = canvas.getContext("2d");
-    halfWidth = canvas.width / 2;
-    halfHeight = canvas.height / 2;
-    drawSpiky(ctx);
-  }
-  $: if (canvas) {
-    setupCanvas();
-  }
-  //official
-  // `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${$pokemon.pokemon_id}.png`
+	function setupCanvas() {
+		canvas.width = width;
+		canvas.height = height;
+		ctx = canvas.getContext('2d');
+		halfWidth = canvas.width / 2;
+		halfHeight = canvas.height / 2;
+		drawSpiky(ctx);
+	}
+	$: if (canvas) {
+		setupCanvas();
+	}
+	//official
+	// `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${$pokemon.pokemon_id}.png`
 
-  // gif
-  // `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${$pokemon.id}.gif`
+	// gif
+	// `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${$pokemon.id}.gif`
 
-  // default
-  // `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${$pokemon.id}.png`
-  let resize = false;
+	// default
+	// `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${$pokemon.id}.png`
+	let resize = false;
 </script>
 
 {#if $pokemon_id}
-  <link
-    rel="preload"
-    as="image"
-    href={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${$pokemon_id}.png`}
-  />
+	<link
+		rel="preload"
+		as="image"
+		href={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${$pokemon_id}.png`}
+	/>
 {/if}
 <svelte:window
-  on:resize={() => {
-    resize = !resize;
-    setupCanvas();
-  }}
+	on:resize={() => {
+		resize = !resize;
+		setupCanvas();
+	}}
 />
-<section
-  class="container aspect-[5/4] sm:aspect-video lg:aspect-[2/1] overflow-hidden"
->
-  {#if $pokemon}
-    {#key $pokemon.id}
-      <div
-        in:scale={{ delay: 400 }}
-        out:scale
-        class="block h-full relative aspect-square mx-auto"
-      >
-        {#key resize}
-          <div
-            bind:clientWidth={width}
-            bind:clientHeight={height}
-            class="w-full h-full"
-          >
-            <img
-              draggable="false"
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${$pokemon.id}.png`}
-              style="image-rendering: pixelated;"
-              alt="pokemon"
-              class="block mx-auto absolute h-full aspect-square transition duration-1000 select-none pointer-events-none"
-              class:brightness-0={$hidePokemon}
-            />
-            <canvas bind:this={canvas} class="" />
-          </div>
-        {/key}
-      </div>
-    {/key}
-  {:else}
-    <div
-      in:scale={{ delay: 400 }}
-      out:scale
-      class="aspect-square h-full mx-auto flex flex-col justify-center "
-    >
-      <h1
-        class=" font-pokemon capitalize text-yellow-400
+<section class="container aspect-square sm:aspect-video lg:aspect-[2/1] overflow-hidden">
+	{#if $pokemon}
+		{#key $pokemon.id}
+			<div in:scale={{ delay: 400 }} out:scale class="block h-full relative aspect-square mx-auto">
+				{#key resize}
+					<div bind:clientWidth={width} bind:clientHeight={height} class="w-full h-full">
+						<img
+							draggable="false"
+							src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${$pokemon.id}.png`}
+							style="image-rendering: pixelated;"
+							alt="pokemon"
+							class="block mx-auto absolute h-full aspect-square transition duration-1000 select-none pointer-events-none"
+							class:brightness-0={$hidePokemon}
+						/>
+						<canvas bind:this={canvas} class="" />
+					</div>
+				{/key}
+			</div>
+		{/key}
+	{:else}
+		<div
+			in:scale={{ delay: 400 }}
+			out:scale
+			class="aspect-square h-full mx-auto flex flex-col justify-center "
+		>
+			<h1
+				class=" font-pokemon capitalize text-yellow-400
         text-[250px]
         sm:text-[350px]
         lg:text-[450px]
@@ -110,9 +94,9 @@
       lg:[-webkit-text-stroke:9px_#0369a1;]
 			lg:[text-shadow:-12px_12px_#171717;]
 		"
-      >
-        ?
-      </h1>
-    </div>
-  {/if}
+			>
+				?
+			</h1>
+		</div>
+	{/if}
 </section>

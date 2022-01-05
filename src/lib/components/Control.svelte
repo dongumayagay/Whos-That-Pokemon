@@ -9,6 +9,8 @@
 	}
 	function reset() {
 		$pokemon = null;
+		// getRandomPokemon();
+		selectRandomPokemonIdFromGen();
 	}
 </script>
 
@@ -58,7 +60,7 @@
   {/if}
 </section> -->
 
-<section class="container border grid sm:grid-cols-2 gap-4 px-4">
+<section class="container grid sm:grid-cols-2 gap-4 px-4">
 	{#if !$pokemon}
 		<button on:click={getRandomPokemon} class="btn bg-emerald-500 border-b-emerald-700 text-white"
 			>Play</button
