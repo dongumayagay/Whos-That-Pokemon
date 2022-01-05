@@ -5554,8 +5554,8 @@ var entry, js, css2;
 var init__ = __esm({
   ".svelte-kit/output/server/nodes/0.js"() {
     init_layout_svelte();
-    entry = "pages/__layout.svelte-b2335568.js";
-    js = ["pages/__layout.svelte-b2335568.js", "chunks/vendor-97916add.js"];
+    entry = "pages/__layout.svelte-b2a7c8c7.js";
+    js = ["pages/__layout.svelte-b2a7c8c7.js", "chunks/vendor-97916add.js"];
     css2 = ["assets/pages/__layout.svelte-594e25fe.css"];
   }
 });
@@ -5604,8 +5604,8 @@ var entry2, js2, css3;
 var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     init_error_svelte();
-    entry2 = "error.svelte-f2f34fb9.js";
-    js2 = ["error.svelte-f2f34fb9.js", "chunks/vendor-97916add.js"];
+    entry2 = "error.svelte-8ce4db68.js";
+    js2 = ["error.svelte-8ce4db68.js", "chunks/vendor-97916add.js"];
     css3 = [];
   }
 });
@@ -5794,8 +5794,8 @@ var entry3, js3, css4;
 var init__3 = __esm({
   ".svelte-kit/output/server/nodes/2.js"() {
     init_index_svelte();
-    entry3 = "pages/index.svelte-a9258811.js";
-    js3 = ["pages/index.svelte-a9258811.js", "chunks/vendor-97916add.js"];
+    entry3 = "pages/index.svelte-de77fe56.js";
+    js3 = ["pages/index.svelte-de77fe56.js", "chunks/vendor-97916add.js"];
     css4 = [];
   }
 });
@@ -7288,10 +7288,10 @@ var App = class {
 // .svelte-kit/vercel-tmp/manifest.js
 var manifest = {
   appDir: "_app",
-  assets: new Set(["favicon.ico", "favicon.png", "Ketchum-WeeV.woff2", "Pokemon GB.woff2"]),
+  assets: new Set(["favicon.png", "Ketchum-WeeV.woff2", "Pokemon GB.woff2"]),
   _: {
-    mime: { ".ico": "image/vnd.microsoft.icon", ".png": "image/png", ".woff2": "font/woff2" },
-    entry: { "file": "start-877ed2c4.js", "js": ["start-877ed2c4.js", "chunks/vendor-97916add.js"], "css": ["assets/start-d5b4de3e.css"] },
+    mime: { ".png": "image/png", ".woff2": "font/woff2" },
+    entry: { "file": "start-58fa6d9f.js", "js": ["start-58fa6d9f.js", "chunks/vendor-97916add.js"], "css": ["assets/start-d5b4de3e.css"] },
     nodes: [
       () => Promise.resolve().then(() => (init__(), __exports)),
       () => Promise.resolve().then(() => (init__2(), __exports2)),
