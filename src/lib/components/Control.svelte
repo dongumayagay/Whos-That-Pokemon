@@ -5,13 +5,19 @@
 	function checkAnswer(answer) {
 		showPokemon();
 		selectRandomPokemonIdFromGen();
-		return $pokemon.name === answer;
+		right_answer = $pokemon.name;
+		if (answer !== right_answer) {
+			wrong_answer = answer;
+		}
+		// return $pokemon.name === answer;
 	}
 	function reset() {
 		$pokemon = null;
-		// getRandomPokemon();
+		right_answer = null;
 		selectRandomPokemonIdFromGen();
 	}
+	let right_answer = null;
+	let wrong_answer = null;
 </script>
 
 <!-- <section
@@ -73,7 +79,11 @@
 		{#each $choices as choice}
 			<button
 				on:click={() => checkAnswer(choice)}
-				class="bg-white text-black border-neutral-400 btn"
+				class="btn {choice === right_answer ? 'btn-correct' : ''} {choice === wrong_answer
+					? 'btn-wrong'
+					: ''}"
+				class:btn-disable={!$hidePokemon}
+				disabled={!$hidePokemon}
 			>
 				{choice}
 			</button>
