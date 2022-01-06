@@ -1,6 +1,6 @@
 <script>
 	import { scale } from 'svelte/transition';
-	import { hidePokemon, pokemon, pokemon_id } from '../store';
+	import { hidePokemon, pokemon, pokemon_id, numOfQuestions, numOfRightAnswer } from '../store';
 
 	function drawSpiky(ctx) {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -80,23 +80,53 @@
 		<div
 			in:scale={{ delay: 400 }}
 			out:scale
-			class="aspect-square h-full mx-auto flex flex-col justify-center "
+			class="aspect-square h-full  mx-auto flex flex-col justify-center "
 		>
-			<h1
-				class=" font-pokemon capitalize text-yellow-400
-        text-[250px]
-        sm:text-[350px]
-        lg:text-[450px]
-      [-webkit-text-stroke:5px_#0369a1;]
-      [text-shadow:-7px_7px_#171717;]
-      sm:[-webkit-text-stroke:7px_#0369a1;]
-			sm:[text-shadow:-10px_10px_#171717;]
-      lg:[-webkit-text-stroke:9px_#0369a1;]
-			lg:[text-shadow:-12px_12px_#171717;]
-		"
-			>
-				?
-			</h1>
+			{#if $numOfQuestions === 0}
+				<h1
+					class=" font-pokemon capitalize text-yellow-400
+							text-[250px]
+							sm:text-[350px]
+							lg:text-[450px]
+							[-webkit-text-stroke:5px_#0369a1;]
+							[text-shadow:-7px_7px_#171717;]
+							sm:[-webkit-text-stroke:7px_#0369a1;]
+							sm:[text-shadow:-10px_10px_#171717;]
+      						lg:[-webkit-text-stroke:9px_#0369a1;]
+							lg:[text-shadow:-12px_12px_#171717;]
+							"
+				>
+					?
+				</h1>
+			{:else}
+				<div class="relative -top-7">
+					<h1
+						class=" tracking-wider mb-4
+				font-pokemon capitalize text-yellow-400
+				text-8xl
+				sm:text-[150px]
+				[-webkit-text-stroke:4px_#0369a1;]
+				[text-shadow:-7px_7px_#171717;]
+				sm:[-webkit-text-stroke:5px_#0369a1;]
+				sm:[text-shadow:-10px_10px_#171717;]
+				"
+					>
+						<span>{Math.floor(($numOfRightAnswer / $numOfQuestions) * 100)}%</span>
+					</h1>
+					<span
+						class=" font-pokemon text-yellow-400
+					text-3xl sm:text-4xl
+					[-webkit-text-stroke:2px_#0369a1;]
+					[text-shadow:-4px_4px_#171717;]
+					sm:[-webkit-text-stroke:3px_#0369a1;]
+					sm:[text-shadow:-5px_5px_#171717;]
+					
+					"
+					>
+						You guess <br />{$numOfRightAnswer} out of {$numOfQuestions}</span
+					>
+				</div>
+			{/if}
 		</div>
 	{/if}
 </section>
