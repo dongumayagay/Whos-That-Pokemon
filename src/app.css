@@ -35,4 +35,13 @@
 	.btn-wrong {
 		@apply bg-rose-500 border-b-rose-700 text-white;
 	}
+	.header{
+		@apply  h-full w-full grid place-items-center
+		font-pokemon capitalize text-yellow-400
+		text-5xl
+		[-webkit-text-stroke:3px_#0369a1;]
+		[text-shadow:-5px_5px_#171717;]
+		sm:text-7xl
+		sm:[text-shadow:-6px_6px_#171717;]
+	}
 }

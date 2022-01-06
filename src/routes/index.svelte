@@ -16,9 +16,7 @@
 			scroll-smooth snap-y snap-mandatory overflow-y-scroll
 			"
 >
-	<main
-		class=" container h-screen snap-center text-center flex flex-col justify-center relative -top-5"
-	>
+	<main class=" container h-screen snap-center text-center flex flex-col justify-center">
 		<Header />
 		<PokemonImage />
 		<Control />
