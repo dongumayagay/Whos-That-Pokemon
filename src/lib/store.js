@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
 export const totalPokemon = 898;
 export const maxPokemonPerGeneration = [151, 100, 135, 107, 156, 72, 88, 89];
@@ -9,3 +9,5 @@ export let selectedGenerations = writable([1]);
 export let showSelectGenerations = writable(false);
 export const numOfChoices = 3;
 export let choices = writable([]);
+export let numOfQuestions = writable(0);
+export let numOfRightAnswer = writable(0);
