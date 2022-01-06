@@ -115,10 +115,10 @@
 					</h1>
 					<span
 						class=" font-pokemon text-yellow-400
-					text-3xl sm:text-4xl
+					text-3xl sm:text-[2.5rem]
 					[-webkit-text-stroke:2px_#0369a1;]
 					[text-shadow:-4px_4px_#171717;]
-					sm:[-webkit-text-stroke:3px_#0369a1;]
+					sm:[-webkit-text-stroke:2.5px_#0369a1;]
 					sm:[text-shadow:-5px_5px_#171717;]
 					
 					"
