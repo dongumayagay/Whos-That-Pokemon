@@ -12,6 +12,7 @@
 	const showPokemon = () => ($hidePokemon = false);
 	let right_answer = null;
 	let wrong_answer = null;
+
 	function play() {
 		$numOfQuestions = 0;
 		$numOfRightAnswer = 0;
@@ -29,6 +30,7 @@
 			$numOfRightAnswer += 1;
 		}
 	}
+
 	function quit() {
 		$pokemon = null;
 		right_answer = null;
@@ -43,15 +45,18 @@
 		</button>
 		<button
 			on:click={() => ($showSelectGenerations = true)}
-			class="btn bg-pink-500 border-b-pink-700 text-white">Select Gen</button
+			class="btn bg-pink-500 border-b-pink-700 text-white"
 		>
+			Select Gen
+		</button>
 	{:else}
 		{#each $choices as choice}
 			<button
 				on:click={() => checkAnswer(choice)}
-				class="btn {choice === right_answer ? 'btn-correct' : ''} {choice === wrong_answer
-					? 'btn-wrong'
-					: ''}"
+				class=" btn
+						{choice === right_answer ? 'btn-correct' : ''}
+						{choice === wrong_answer ? 'btn-wrong' : ''}
+						"
 				class:btn-disable={!$hidePokemon}
 				disabled={!$hidePokemon}
 			>
@@ -59,16 +64,12 @@
 			</button>
 		{/each}
 		{#if $hidePokemon}
-			<button
-				on:click={quit}
-				class="bg-sky-500 border-sky-700 text-white btn
-">Quit</button
-			>{:else}
-			<button
-				on:click={getRandomPokemon}
-				class="bg-sky-500 border-sky-700 text-white btn
-">{'Next'}</button
-			>
+			<button on:click={quit} class=" btn bg-sky-500 border-sky-700 text-white">
+				Quit
+			</button>{:else}
+			<button on:click={getRandomPokemon} class=" btn bg-sky-500 border-sky-700 text-white">
+				{'Next'}
+			</button>
 		{/if}
 	{/if}
 </section>

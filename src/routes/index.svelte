@@ -12,19 +12,15 @@
 	<SelectGenerations />
 {/if}
 <div
-	class="h-screen bg-gradient-to-tr 
-    from-yellow-500 via-orange-500 to-red-500
-    scroll-smooth snap-y snap-mandatory overflow-y-scroll
-    "
+	class="	h-screen bg-gradient-to-tr from-yellow-500 via-orange-500 to-red-500
+			scroll-smooth snap-y snap-mandatory overflow-y-scroll
+			"
 >
-	<!-- <div class="h-screen py-16 snap-start"> -->
 	<main
-		class="container h-screen snap-center text-center flex flex-col justify-center relative -top-5"
+		class=" container h-screen snap-center text-center flex flex-col justify-center relative -top-5"
 	>
 		<Header />
 		<PokemonImage />
 		<Control />
 	</main>
-	<!-- </div> -->
-	<!-- <div id="score" class="h-screen  snap-start" /> -->
 </div>

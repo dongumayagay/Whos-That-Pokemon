@@ -51,12 +51,14 @@
 		href={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${$pokemon_id}.png`}
 	/>
 {/if}
+
 <svelte:window
 	on:resize={() => {
 		resize = !resize;
 		setupCanvas();
 	}}
 />
+
 <section class="container aspect-square sm:aspect-video lg:aspect-[2/1] overflow-hidden">
 	{#if $pokemon}
 		{#key $pokemon.id}
@@ -102,26 +104,25 @@
 				<div class="relative -top-7">
 					<h1
 						class=" tracking-wider mb-4
-				font-pokemon capitalize text-yellow-400
-				text-8xl
-				sm:text-[150px]
-				[-webkit-text-stroke:4px_#0369a1;]
-				[text-shadow:-7px_7px_#171717;]
-				sm:[-webkit-text-stroke:5px_#0369a1;]
-				sm:[text-shadow:-10px_10px_#171717;]
-				"
+								font-pokemon capitalize text-yellow-400
+								text-8xl
+								sm:text-[150px]
+								[-webkit-text-stroke:4px_#0369a1;]
+								[text-shadow:-7px_7px_#171717;]
+								sm:[-webkit-text-stroke:5px_#0369a1;]
+								sm:[text-shadow:-10px_10px_#171717;]
+								"
 					>
 						<span>{Math.floor(($numOfRightAnswer / $numOfQuestions) * 100)}%</span>
 					</h1>
 					<span
 						class=" font-pokemon text-yellow-400
-					text-3xl sm:text-[2.5rem]
-					[-webkit-text-stroke:2px_#0369a1;]
-					[text-shadow:-4px_4px_#171717;]
-					sm:[-webkit-text-stroke:2.5px_#0369a1;]
-					sm:[text-shadow:-5px_5px_#171717;]
-					
-					"
+								text-3xl sm:text-[2.5rem]
+								[-webkit-text-stroke:2px_#0369a1;]
+								[text-shadow:-4px_4px_#171717;]
+								sm:[-webkit-text-stroke:2.5px_#0369a1;]
+								sm:[text-shadow:-5px_5px_#171717;]
+								"
 					>
 						You guess <br />{$numOfRightAnswer} out of {$numOfQuestions}</span
 					>
