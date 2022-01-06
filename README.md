@@ -1,6 +1,6 @@
 # Who's That Pokemon?
 
-Text your Pokemon Knowledge by Guessing **Who's That Pokemon?!**
+Test your Pokemon Knowledge by Guessing **Who's That Pokemon?!**
 
 View the Live site [Click here](https://wtp.vercel.app/)
 
