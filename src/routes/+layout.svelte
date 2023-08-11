@@ -5,4 +5,8 @@
 	export let data: LayoutData;
 </script>
 
-<slot />
+<main
+	class="bg-gradient-to-tr from-yellow-500 via-orange-500 to-red-500 scroll-smooth bg-fixed min-h-full"
+>
+	<slot />
+</main>
