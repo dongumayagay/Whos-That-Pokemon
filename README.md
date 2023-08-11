@@ -1,33 +1,22 @@
-# Who's That Pokemon?
+# create-svelte
 
-Test your Pokemon Knowledge by Guessing **Who's That Pokemon?!**
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-View the Live site [Click here](https://wtp.vercel.app/)
+## Creating a project
 
-## Requirements
+If you're seeing this, you've probably already done this step. Congrats!
 
-- Node.js
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-## Setup
-
-clone or download the repo
-then install the dependencies with your package manager of choice ( npm, yarn, pnpm )
-
-```
-# for npm
-npm install
-
-# for yarn
-yarn
-
-# for pnpm
-pnpm install
-
+# create a new project in my-app
+npm create svelte@latest my-app
 ```
 
 ## Developing
 
-start a development server:
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
@@ -38,10 +27,12 @@ npm run dev -- --open
 
 ## Building
 
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
+To create a production version of your app:
 
 ```bash
 npm run build
 ```
 
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
